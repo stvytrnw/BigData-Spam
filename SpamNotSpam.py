@@ -19,13 +19,6 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 
 # PCA : 
 
-for i in range(len(df.columns)-1):
-  for j in range(i+2, len(df.columns)-1):
-    x_label = df.columns[i+1]
-    y_label = df.columns[j]
-    sns.scatterplot(x=x_label, y=y_label, data=df, hue='Prediction')
-    plt.show()
-
 # print('kNN')
 # model = KNeighborsClassifier(n_neighbors=5)
 # print('Train R2: {}'.format(r2_score(y_train, model.fit(X_train, y_train).predict(X_train))))
