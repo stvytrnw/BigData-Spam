@@ -23,7 +23,7 @@ for i in range(len(df.columns)-1):
   for j in range(i+1, len(df.columns)-1):
     x_label = df.columns[i]
     y_label = df.columns[j]
-    sns.scatterplot(x=x_label, y=y_label, data=df, hue='class')
+    sns.scatterplot(x=x_label, y=y_label, data=df, hue='Prediction')
     plt.show()
 
 # print('kNN')
