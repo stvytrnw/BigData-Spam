@@ -2,6 +2,7 @@ import pandas as pd
 import tensorflow as tf
 import matplotlib.pyplot as plt
 import seaborn as sns
+import numpy as np
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.naive_bayes import GaussianNB
 from sklearn.linear_model import LogisticRegression
@@ -10,6 +11,7 @@ from sklearn import svm
 from sklearn.model_selection import train_test_split, cross_val_score
 from sklearn.metrics import r2_score
 from sklearn.neural_network import MLPClassifier
+from sklearn.decomposition import PCA
 
 df = pd.read_csv("emails.csv")
 
@@ -117,3 +119,13 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 # plot_history(history)
 # accuracy = model.evaluate(X_test, y_test)[1]
 # print('Accuracy:', accuracy)
+
+#PCA 
+pca = PCA(0.99)
+X2D = pca.fit_transform(X)
+print(pca.explained_variance_ratio_) #AUF JEDEN FALL IN PRÄSENTATION (LINEARES PROBLEM)
+plt.plot(range(1, 30), np.cumsum(pca.explained_variance_ratio_))
+plt.show()
+
+#PCA -> Pipeline -> normale Modelle
+#Mit PCA Deep Learning?
