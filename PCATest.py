@@ -12,14 +12,21 @@ from sklearn.model_selection import train_test_split, cross_val_score
 from sklearn.metrics import r2_score
 from sklearn.neural_network import MLPClassifier
 from sklearn.decomposition import PCA
+from sklearn.preprocessing import StandardScaler
 
 df = pd.read_csv("emails.csv")
 
 X = df[df.columns[1:-1]].values
 y = df[df.columns[-1]].values
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, shuffle=True)
 
-# PCA : 
+scaler = StandardScaler()
+X = scaler.fit_transform(X)
+
+model = PCA(n_components=0.99)
+model.fit(X)
+X = model.transform(X)
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, shuffle=True)
 
 print('kNN')
 model = KNeighborsClassifier(n_neighbors=5)
@@ -80,52 +87,3 @@ print('Scores: {}'.format(scores))
 print('Mean score: {}'.format(scores.mean()))
 print('Std score: {}'.format(scores.std()))
 print()
-
-
-# Tensor Flow Cross Validation?
-# print('NEURAL NETWORK')
-# def plot_history(history):
-#   fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 4))
-#   ax1.plot(history.history['loss'], label='loss')
-#   ax1.plot(history.history['val_loss'], label='val_loss')
-#   ax1.set_xlabel('Epoch')
-#   ax1.set_ylabel('Binary crossentropy')
-#   ax1.grid(True)
-
-#   ax2.plot(history.history['accuracy'], label='accuracy')
-#   ax2.plot(history.history['val_accuracy'], label='val_accuracy')
-#   ax2.set_xlabel('Epoch')
-#   ax2.set_ylabel('Accuracy')
-#   ax2.grid(True)
-
-#   plt.show()
-  
-# model = tf.keras.Sequential([
-#     tf.keras.layers.Dense(100, activation='relu', input_shape=(3000,)),
-#     tf.keras.layers.Dropout(0.2),
-#     tf.keras.layers.Dense(100, activation='relu'),
-#     tf.keras.layers.Dropout(0.2),
-#     tf.keras.layers.Dense(1, activation='sigmoid')
-# ])
-
-# model.summary()
-
-# model.compile(optimizer=tf.keras.optimizers.Adam(0.005), loss='binary_crossentropy',
-#                 metrics=['accuracy'])
-# history = model.fit(
-#   X_train, y_train, epochs=100, batch_size=128, validation_split=0.2, verbose=0
-# )
-
-# plot_history(history)
-# accuracy = model.evaluate(X_test, y_test)[1]
-# print('Accuracy:', accuracy)
-
-#PCA 
-pca = PCA(0.99)
-X2D = pca.fit_transform(X)
-print(pca.explained_variance_ratio_) #AUF JEDEN FALL IN PRÄSENTATION (LINEARES PROBLEM)
-plt.plot(range(1, 30), np.cumsum(pca.explained_variance_ratio_))
-plt.show()
-
-#PCA -> Pipeline -> normale Modelle
-#Mit PCA Deep Learning?
