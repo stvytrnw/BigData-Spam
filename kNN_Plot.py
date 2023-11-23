@@ -9,7 +9,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestRegressor
 from sklearn import svm
 from sklearn.model_selection import train_test_split, cross_val_score, StratifiedKFold
-from sklearn.metrics import r2_score
+from sklearn.metrics import r2_score, accuracy_score, confusion_matrix, ConfusionMatrixDisplay
 from sklearn.neural_network import MLPClassifier
 from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler
@@ -21,8 +21,8 @@ df = pd.read_csv("emails.csv")
 X = df[df.columns[1:-1]].values
 y = df[df.columns[-1]].values
 
-# scaler = StandardScaler()
-# X = scaler.fit_transform(X)
+scaler = StandardScaler()
+X = scaler.fit_transform(X)
 
 model = PCA(n_components=0.99)
 model.fit(X)
@@ -42,3 +42,19 @@ sns.lineplot(x = k_values, y = scores, marker = 'o')
 plt.xlabel("K Values")
 plt.ylabel("Accuracy Score")
 plt.show()
+
+# print('kNN')
+# model = KNeighborsClassifier(n_neighbors=5)
+# print('Train R2: {}'.format(r2_score(y_train, model.fit(X_train, y_train).predict(X_train))))
+# print('Test R2: {}'.format(r2_score(y_test, model.fit(X_train, y_train).predict(X_test))))
+# scores = cross_val_score(model, X_train, y_train, cv=5, scoring='r2')
+# y_pred = model.predict(X_test)
+# print('Scores: {}'.format(scores))
+# print('Mean score: {}'.format(scores.mean()))
+# print('Std score: {}'.format(scores.std()))
+# print()
+
+# cm = confusion_matrix(y_test, y_pred)
+# disp = ConfusionMatrixDisplay(confusion_matrix=cm)
+# disp.plot()
+# plt.show()
