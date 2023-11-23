@@ -27,12 +27,9 @@ X = scaler.fit_transform(X)
 lle = LocallyLinearEmbedding(n_components=2, n_neighbors=10)
 X_reduced = lle.fit_transform(X)
 
-# model = PCA(n_components=0.99)
-# model.fit(X)
-# X = model.transform(X)
-
-print(X_reduced.shape)
-
+model = PCA(n_components=0.99)
+model.fit(X)
+X = model.transform(X)
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, shuffle=True)
 
