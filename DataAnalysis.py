@@ -13,9 +13,19 @@ print(df.head(10))
 #Print last 10 rows
 print(df.tail(10))
 
-wordcloud = WordCloud(background_color='white', width=800, height=400).generate(''.join(df.v2))
+df = df[df.columns[1:]]
 
-plt.figure(figsize=(20, 5))
+print(' '.join(df[df['Prediction'] == 0]))
+
+#Plot a wordcloud for ham
+wordcloud = WordCloud(background_color='white').generate(' '.join(df[df['Prediction'] == 0]))
 plt.imshow(wordcloud, interpolation='bilinear')
 plt.axis("off")
 plt.show()
+
+#Plot a wordcloud for spam
+wordcloud = WordCloud(background_color='white').generate(' '.join(df[df['Prediction'] == 1]))
+plt.imshow(wordcloud, interpolation='bilinear')
+plt.axis("off")
+plt.show()
+

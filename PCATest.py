@@ -14,6 +14,7 @@ from sklearn.neural_network import MLPClassifier
 from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import accuracy_score
+from sklearn.manifold import LocallyLinearEmbedding
 
 df = pd.read_csv("emails.csv")
 
@@ -23,9 +24,14 @@ y = df[df.columns[-1]].values
 scaler = StandardScaler()
 X = scaler.fit_transform(X)
 
-model = PCA(n_components=0.99)
-model.fit(X)
-X = model.transform(X)
+lle = LocallyLinearEmbedding(n_components=2, n_neighbors=10)
+X_reduced = lle.fit_transform(X)
+
+# model = PCA(n_components=0.99)
+# model.fit(X)
+# X = model.transform(X)
+
+print(X_reduced.shape)
 
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, shuffle=True)
