@@ -24,9 +24,6 @@ y = df[df.columns[-1]].values
 scaler = StandardScaler()
 X = scaler.fit_transform(X)
 
-lle = LocallyLinearEmbedding(n_components=2, n_neighbors=10)
-X_reduced = lle.fit_transform(X)
-
 model = PCA(n_components=0.99)
 model.fit(X)
 X = model.transform(X)
