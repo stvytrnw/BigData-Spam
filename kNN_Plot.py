@@ -21,8 +21,8 @@ df = pd.read_csv("emails.csv")
 X = df[df.columns[1:-1]].values
 y = df[df.columns[-1]].values
 
-scaler = StandardScaler()
-X = scaler.fit_transform(X)
+# scaler = StandardScaler()
+# X = scaler.fit_transform(X)
 
 model = PCA(n_components=0.99)
 model.fit(X)
