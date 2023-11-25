@@ -30,7 +30,7 @@ X = model.transform(X)
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, shuffle=True)
 
-k_values = [i for i in range (1,50)]
+k_values = [i for i in range(1, 50)]
 scores = []
 
 for k in k_values:
