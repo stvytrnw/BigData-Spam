@@ -2,8 +2,11 @@
 
 # To-Do
 - [ ] WordCloud erstellen
-- [ ] 
-- [ ] 
+- [ ] Praesentation
+
+# Fragen
+- [ ] Wie Confusion Matrix nach CV?
+- [ ] Maybe andere Moeglichkeiten das darzustellen? 
 
 ### Gliederung
 1. Problemstellung
