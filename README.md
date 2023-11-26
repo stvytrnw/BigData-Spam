@@ -3,6 +3,7 @@
 # To-Do
 - [ ] WordCloud erstellen
 - [ ] Praesentation
+- [ ] Score der verschiedenen Modelle vergleichen im Plot
 
 # Fragen
 - [ ] Wie Confusion Matrix nach CV?
