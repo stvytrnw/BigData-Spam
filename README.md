@@ -1,5 +1,10 @@
 # BigData-Spam
 
+# To-Do
+- [ ] WordCloud erstellen
+- [ ] 
+- [ ] 
+
 ### Gliederung
 1. Problemstellung
 2. Datensatz
