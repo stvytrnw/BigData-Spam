@@ -8,6 +8,7 @@
 # Fragen
 - [ ] Wie Confusion Matrix nach CV?
 - [ ] Maybe andere Moeglichkeiten das darzustellen? 
+- [ ] Die WordCloud so lassen? Einzelne Buchstaben herausnehmen und sich vielleicht auf Woerter konzentrieren? 
 
 ### Gliederung
 1. Problemstellung
