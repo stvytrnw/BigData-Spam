@@ -29,11 +29,11 @@ plt.imshow(wordcloud, interpolation='bilinear')
 plt.axis("off")
 plt.show()
 
-# #Print dimensionality of the DataFrame
-# print(df.shape)
+# Print dimensionality of the DataFrame
+print(df.shape)
 
-# #Print first 10 rows
-# print(df.head(10))
+# Print first 10 rows
+print(df.head(10))
 
-# #Print last 10 rows
-# print(df.tail(10))
+# Print last 10 rows
+print(df.tail(10))
