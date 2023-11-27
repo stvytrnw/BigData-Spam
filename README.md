@@ -4,11 +4,12 @@
 - [ ] WordCloud erstellen
 - [ ] Praesentation
 - [ ] Score der verschiedenen Modelle vergleichen im Plot
+- [ ] PCA Filtern nach Gewichtung 
+- [ ] Einzelne Buchstaben WordCloud nach PCA herausnehmen
+- [ ] WordCloud mit Dict. abgleichen [Opt.]
+- [ ] Johann's komische App (?)
 
 # Fragen
-- [ ] Wie Confusion Matrix nach CV?
-- [ ] Maybe andere Moeglichkeiten das darzustellen? 
-- [ ] Die WordCloud so lassen? Einzelne Buchstaben herausnehmen und sich vielleicht auf Woerter konzentrieren? 
 
 ### Gliederung
 1. Problemstellung
