@@ -28,7 +28,8 @@ model = PCA(n_components=0.99)
 model.fit(X)
 X = model.transform(X)
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, shuffle=True)
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42, shuffle=True)
 
 k_values = [i for i in range(1, 50)]
 scores = []
@@ -37,8 +38,8 @@ for k in k_values:
     knn = KNeighborsClassifier(n_neighbors=k)
     score = cross_val_score(knn, X, y, cv=5)
     scores.append(np.mean(score))
-    
-sns.lineplot(x = k_values, y = scores, marker = 'o')
+
+sns.lineplot(x=k_values, y=scores, marker='o')
 plt.xlabel("K Values")
 plt.ylabel("Accuracy Score")
 plt.show()

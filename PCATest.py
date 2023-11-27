@@ -28,11 +28,15 @@ model = PCA(n_components=0.99)
 model.fit(X)
 X = model.transform(X)
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, shuffle=True)
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42, shuffle=True)
+
 
 def getScores():
-    print('Train R2: {}'.format(r2_score(y_train, model.fit(X_train, y_train).predict(X_train))))
-    print('Test R2: {}'.format(r2_score(y_test, model.fit(X_train, y_train).predict(X_test))))
+    print('Train R2: {}'.format(
+        r2_score(y_train, model.fit(X_train, y_train).predict(X_train))))
+    print('Test R2: {}'.format(
+        r2_score(y_test, model.fit(X_train, y_train).predict(X_test))))
     scores = cross_val_score(model, X_train, y_train, cv=5, scoring='r2')
     print('Scores: {}'.format(scores))
     print('Mean score: {}'.format(scores.mean()))
