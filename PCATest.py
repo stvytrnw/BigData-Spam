@@ -30,19 +30,18 @@ model = PCA(n_components=2)
 model.fit(X)
 X = model.transform(X)
 
+X_df = pd.DataFrame(X)
 df_pca = pd.DataFrame(model.components_)
 
 # df_pca['Summe'] = df_pca.sum(axis=1)
 # print(df_pca['Summe'])
 
-# # Sortiere die Spalten nach den Werten in der ersten Reihe
-# sorted_df = df_pca.sort_values(by=df.index[0], axis=1, ascending=False)
+# Sortiere die Spalten nach den Werten in der ersten Reihe
+sorted_df = df_pca.sort_values(by=df.index[0], axis=1, ascending=False)
 
-# # Behalte nur die ersten 200 Spalten
-# filtered_df = sorted_df.iloc[:, :200]
+# Behalte nur die ersten 200 Spalten
+filtered_df = sorted_df.iloc[:, :200]
 
-# print(filtered_df)
-print(model.components_)
 
 # X_train, X_test, y_train, y_test = train_test_split(
 #     X, y, test_size=0.2, random_state=42, shuffle=True)
