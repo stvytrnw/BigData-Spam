@@ -1,13 +1,14 @@
 # BigData-Spam
 
 # To-Do
-- [ ] WordCloud erstellen
+- [X] WordCloud erstellen
+- [X] PCA Filtern nach Gewichtung 
+- [X] Einzelne Buchstaben WordCloud nach PCA herausnehmen
 - [ ] Praesentation
 - [ ] Score der verschiedenen Modelle vergleichen im Plot
-- [ ] PCA Filtern nach Gewichtung 
-- [ ] Einzelne Buchstaben WordCloud nach PCA herausnehmen
-- [ ] WordCloud mit Dict. abgleichen [Opt.]
 - [ ] Johann's komische App (?)
+- [ ] Neuen Datensatz aufsetzen
+- [ ] Selbstevaluation
 
 # Fragen
 
