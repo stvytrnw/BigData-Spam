@@ -6,7 +6,7 @@ import numpy as np
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.naive_bayes import GaussianNB
 from sklearn.linear_model import LogisticRegression
-from sklearn.ensemble import RandomForestRegressor
+from sklearn.ensemble import RandomForestClassifier
 from sklearn import svm
 from sklearn.model_selection import train_test_split, cross_val_score
 from sklearn.metrics import r2_score
@@ -51,8 +51,8 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 # print('Std score: {}'.format(scores.std()))
 # print()
 
-# print('Random Forest Regressor')
-# model = RandomForestRegressor()
+# print('Random Forest Classifier')
+# model = RandomForestClassifier()
 # print('Train R2: {}'.format(r2_score(y_train, model.fit(X_train, y_train).predict(X_train))))
 # print('Test R2: {}'.format(r2_score(y_test, model.fit(X_train, y_train).predict(X_test))))
 # scores = cross_val_score(model, X_train, y_train, cv=5, scoring='r2')
