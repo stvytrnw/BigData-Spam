@@ -21,7 +21,7 @@ df = pd.read_csv("emails.csv")
 X = df[df.columns[1:-1]].values
 y = df[df.columns[-1]].values
 
-print(X.shape)
+X_df = df[df.columns[1:-1]]
 
 scaler = StandardScaler()
 X = scaler.fit_transform(X)
@@ -30,9 +30,8 @@ model = PCA(n_components=2)
 model.fit(X)
 X = model.transform(X)
 
-X_df = pd.DataFrame(X)
-df_pca = pd.DataFrame(model.components_)
 
+df_pca = pd.DataFrame(model.components_)
 # df_pca['Summe'] = df_pca.sum(axis=1)
 # print(df_pca['Summe'])
 
@@ -41,6 +40,16 @@ sorted_df = df_pca.sort_values(by=df.index[0], axis=1, ascending=False)
 
 # Behalte nur die ersten 200 Spalten
 filtered_df = sorted_df.iloc[:, :200]
+
+selected_columns = [int(col) for col in filtered_df.columns] 
+
+# Erstellen Sie eine Liste der Spaltennamen aus df_large basierend auf den Indizes
+selected_columns_names = [X_df.columns[i] for i in selected_columns]
+
+df_large_reduced = X_df.iloc[:, selected_columns]
+
+
+# df_large_reduced enthält jetzt nur die Spalten, die in df_small definiert sind
 
 
 # X_train, X_test, y_train, y_test = train_test_split(
