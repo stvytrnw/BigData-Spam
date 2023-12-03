@@ -113,34 +113,38 @@ def getScores(name):
     score_data['cross_val_stds'].append(scores.std())
     print()
 
+# df.insert(0, "Email No.", ["Email {}".format(i) for i in range(1, len(df) + 1)])
+# df.to_csv("./NEUER DATENSATZ/neu.csv", index=False)
+X.to
 
-model = KNeighborsClassifier(n_neighbors=5)
-getScores('kNN')
 
-# model = GaussianNB()
-# getScores('Naive Bayes')
+# model = KNeighborsClassifier(n_neighbors=5)
+# getScores('kNN')
 
-model = LogisticRegression(max_iter=1000)
-getScores('Log Regression')
+# # model = GaussianNB()
+# # getScores('Naive Bayes')
 
-model = RandomForestClassifier()
-getScores('Random Forest Classifier')
+# model = LogisticRegression(max_iter=1000)
+# getScores('Log Regression')
 
-model = svm.SVC(kernel='linear')
-getScores('SVM')
+# model = RandomForestClassifier()
+# getScores('Random Forest Classifier')
 
-# model = MLPClassifier(random_state=42, max_iter=10000,
-#                       hidden_layer_sizes=[1000, 1000])
-# getScores('NEURAL NETWORK')
+# model = svm.SVC(kernel='linear')
+# getScores('SVM')
 
-# Erstellen Sie ein DataFrame mit Ihren Daten
-data = pd.DataFrame(list(zip(score_data['algorithms'], score_data['train_scores'], score_data['test_scores'], score_data['cross_val_means'],
-                    score_data['cross_val_stds'])), columns=['Algorithmen', 'Train R2', 'Test R2', 'Mean', 'Std'])
+# # model = MLPClassifier(random_state=42, max_iter=10000,
+# #                       hidden_layer_sizes=[1000, 1000])
+# # getScores('NEURAL NETWORK')
 
-# Setzen Sie die Algorithmen als Index
-data.set_index('Algorithmen', inplace=True)
+# # Erstellen Sie ein DataFrame mit Ihren Daten
+# data = pd.DataFrame(list(zip(score_data['algorithms'], score_data['train_scores'], score_data['test_scores'], score_data['cross_val_means'],
+#                     score_data['cross_val_stds'])), columns=['Algorithmen', 'Train R2', 'Test R2', 'Mean', 'Std'])
 
-# Erstellen Sie die Heatmap
-sns.heatmap(data, annot=True, cmap='viridis')
-plt.title('Vergleich der R2-Scores verschiedener Algorithmen')
-plt.show()
+# # Setzen Sie die Algorithmen als Index
+# data.set_index('Algorithmen', inplace=True)
+
+# # Erstellen Sie die Heatmap
+# sns.heatmap(data, annot=True, cmap='viridis')
+# plt.title('Vergleich der R2-Scores verschiedener Algorithmen')
+# plt.show()
