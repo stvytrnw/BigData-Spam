@@ -112,7 +112,7 @@ getScores('Log Regression')
 model = RandomForestClassifier()
 getScores('Random Forest Classifier')
 
-# Initialisiert das RandomForestClassifier-Modell mit einem linearen Kernel
+# Initialisiert das SupportVectorMachine-Modell mit einem linearen Kernel
 # Ein linearer Kernel in einer Support Vector Machine (SVM) bedeutet, dass die Trennung zwischen den Klassen durch eine gerade Linie (in 2D) oder eine Hyperebene (in höheren Dimensionen) erfolgt.
 # Dies ist die einfachste Art von Kernel und eignet sich gut für Daten, die linear trennbar sind.
 model = svm.SVC(kernel='linear')
