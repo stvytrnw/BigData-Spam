@@ -8,8 +8,6 @@ from sklearn import svm
 from sklearn.model_selection import train_test_split, cross_val_score
 from sklearn.metrics import r2_score
 from sklearn.neural_network import MLPClassifier
-from sklearn.decomposition import PCA
-from sklearn.preprocessing import StandardScaler
 
 # Liest die CSV-Datei "emails.csv" und speichert sie in einem DataFrame
 df = pd.read_csv("emails.csv")
@@ -19,22 +17,6 @@ X = df[df.columns[1:-1]].values
 
 # Nimmt die letzte Spalte aus dem DataFrame und speichert ihre Werte in y
 y = df[df.columns[-1]].values
-
-# Initialisiert einen StandardScaler
-scaler = StandardScaler()
-
-# Passt den Scaler an die Daten in X an und transformiert X
-# Dieser Schritt verändert die Werte in X so, dass sie im Durchschnitt 0 sind und eine Streuung von 1 haben.
-X = scaler.fit_transform(X)
-
-# Initialisiert ein PCA-Modell, das die Anzahl der Komponenten so wählt, dass 99% der Varianz erhalten bleiben
-model = PCA(n_components=0.99)
-
-# Passt das PCA-Modell an die Daten in X an
-model.fit(X)
-
-# Transformiert X in den durch das PCA-Modell definierten Raum
-X = model.transform(X)
 
 # Teilt die Daten in Trainings- und Testsets auf, wobei 20% der Daten für das Testset reserviert sind
 X_train, X_test, y_train, y_test = train_test_split(
