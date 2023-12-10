@@ -5,7 +5,7 @@ import numpy as np
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import train_test_split, cross_val_score 
 
-df = pd.read_csv("emails.csv")
+df = pd.read_csv('emails.csv')
 
 X = df[df.columns[1:-1]].values
 y = df[df.columns[-1]].values
